@@ -27,7 +27,7 @@
 					<li><a href="loginForm">Login</a></li><li><a href="contract">Join</a></li>
 				</c:when>
 				<c:otherwise>
-					<li style="color:blue;font-weight:bold;font-size:100%;width:150px;">
+					<li style="color:blue;font-weight:bold;font-size:100%;">
 						${loginUser.NAME}(${loginUser.USERID})로그인
 					</li>
 					<li><a href="memberEditForm">Edit</a></li>
@@ -37,7 +37,6 @@
 			<li><a href="cartList">Cart</a></li>
 			<li><a href="myPage">MyPage</a></li>
 			<li><a href="customer">QnA</a></li>
-			<li><a href="admin">Admin</a></li>
 		</ul>
 	</nav>
 	<nav id="category_menu">

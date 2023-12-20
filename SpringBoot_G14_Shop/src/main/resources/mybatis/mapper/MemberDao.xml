@@ -12,5 +12,12 @@
 			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap})
 		}
 	</select>
+	
+	<select id="joinKakao" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call joinKakao(
+			#{userid}, #{name}, #{tel}, #{email}, #{provider})
+		}
+	</select>
 
 </mapper>
