@@ -4,5 +4,13 @@
 <mapper namespace="com.tjoeun.g14.dao.IMemberDao">
 
 	<resultMap id="memberMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getMember(
+			#{userid},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap})
+		}
+	</select>
 
 </mapper>

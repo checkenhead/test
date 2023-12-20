@@ -38,7 +38,7 @@ nav#top_menu ul li {
 nav#top_menu a {
 	text-decoration: none;
 	display: inline-block;
-	width: 100px;
+	width: 80px;
 	text-align: center;
 	color: #6F0C78;
 	font-weight: bold;
@@ -183,7 +183,7 @@ a:hover {
 	color: #6F0C78;
 	font-family: Verdana;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 14px;
 	display: block;
 	height: 15px;
 	width: 160px;

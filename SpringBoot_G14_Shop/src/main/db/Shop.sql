@@ -406,8 +406,8 @@ select * from NEW_PRO_VIEW;
 
 
 
-
-
+alter table member add provider varchar2(20) default 'shop';
+select * from member;
 
 
 

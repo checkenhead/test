@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="include/header.jsp" %>
-<%@ include file="include/sub01/sub_image_menu.jsp" %>
+<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/sub01/sub_image_menu.jsp" %>
 
 <article>
 	<form name="loginfrm" action="login" method="post">
@@ -9,7 +9,7 @@
 				Login&nbsp;&nbsp;&nbsp;&nbsp;
 				<span style="font-size:80%;font-weight:bold;">${message}</span>
 			</legend>
-			<label>User ID</label><input type="text" name="id" value="${mdto.userid}"><br>
+			<label>User ID</label><input type="text" name="userid" value="${mdto.userid}"><br>
 			<label>Password</label><input type="password" name="pwd">
 			<div>
 				<input type="submit" value="로그인" style="width:200px;">
@@ -26,4 +26,4 @@
 
 </article>
 
-<%@ include file="include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
