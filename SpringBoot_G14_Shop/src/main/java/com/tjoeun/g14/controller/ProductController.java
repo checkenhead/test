@@ -25,6 +25,7 @@ public class ProductController {
 		mav.addObject("newProductList", result.get("newList"));
 		mav.addObject("bestProductList", result.get("bestList"));
 		*/
+		
 		//Oracle Procedure 방식
 		//paramMap : 프로시저에 전달될 커서변수를 포함하는 맵, 필요한 전달인수값들을 같이 넣고 전달하는 방식
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();

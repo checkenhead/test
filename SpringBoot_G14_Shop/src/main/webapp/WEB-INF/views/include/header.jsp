@@ -28,7 +28,7 @@
 				</c:when>
 				<c:otherwise>
 					<li style="color:blue;font-weight:bold;font-size:100%;width:150px;">
-						${loginUser.name}(${loginUser.userid})로그인
+						${loginUser.NAME}(${loginUser.USERID})로그인
 					</li>
 					<li><a href="memberEditForm">Edit</a></li>
 					<li><a href="logout">Logout</a></li>
