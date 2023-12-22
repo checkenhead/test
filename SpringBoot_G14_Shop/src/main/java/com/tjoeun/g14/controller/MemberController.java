@@ -50,27 +50,35 @@ public class MemberController {
 			HttpServletRequest request, Model model) {
 		String url = "member/login";
 
+		//아이디/비밀번호 validation
 		if (result.getFieldError("userid") != null) {
 			model.addAttribute("message", result.getFieldError("userid").getDefaultMessage());
 		} else if (result.getFieldError("pwd") != null) {
 			model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
-		} else {
+		} else {//validation 통과 후
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			
+			//jsp에서 전달 받은 userid와 빈커서를 인자로 getMember호출(프로시저 호출)
 			paramMap.put("userid", membervo.getUserid());
 			paramMap.put("ref_cursor", null);
 			ms.getMember(paramMap);
 
+			//userid로 검색한 리스트 저장
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			//검색 결과가 없다면
 			if (list == null || list.size() == 0) {
 				model.addAttribute("message", "아이디가 없습니다.");
-			} else {
+			} else {//검색 결과가 있다면
 				HashMap<String, Object> memberMap = list.get(0);
 
+				//탈퇴/비밀번호 확인
 				if (memberMap.get("USEYN").equals("N")) {
 					model.addAttribute("message", "탈퇴 절차 진행 중인 아이디입니다. 관리자에게 문의하세요.");
 				} else if (!memberMap.get("PWD").equals(membervo.getPwd())) {
 					model.addAttribute("message", "비밀번호가 틀립니다.");
 				} else if (memberMap.get("PWD").equals(membervo.getPwd())) {
+					//로그인 처리
 					request.getSession().setAttribute("loginUser", memberMap);
 					url = "redirect:/";
 				}
@@ -80,14 +88,13 @@ public class MemberController {
 		return url;
 	}
 
-	// 3d1a8896e9eece72dd49e23ba329185e
 	@GetMapping("/kakaostart")
 	public @ResponseBody String kakaostart() {
-		String str = "<script type='text/javascript'>location.href='https://kauth.kakao.com/oauth/authorize?"
+		String start = "<script type='text/javascript'>location.href='https://kauth.kakao.com/oauth/authorize?"
 				+ "client_id=3d1a8896e9eece72dd49e23ba329185e&redirect_uri=http://localhost:8070/kakaoLogin"
 				+ "&response_type=code'</script>";
 
-		return str;
+		return start;
 	}
 
 	@RequestMapping("/kakaoLogin")
@@ -96,10 +103,10 @@ public class MemberController {
 		String code = request.getParameter("code");
 		String endpoint = "https://kauth.kakao.com/oauth/token";
 		URL url = new URL(endpoint); // import java.net.URL;
-		String bodyData = "grant_type=authorization_code&";
-		bodyData += "client_id=3d1a8896e9eece72dd49e23ba329185e&";
-		bodyData += "redirect_uri=http://localhost:8070/kakaoLogin&";
-		bodyData += "code=" + code;
+		String bodyData = "grant_type=authorization_code"
+				+ "&client_id=3d1a8896e9eece72dd49e23ba329185e"
+				+ "&redirect_uri=http://localhost:8070/kakaoLogin"
+				+ "&code=" + code;
 
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection(); // import java.net.HttpURLConnection;
 		conn.setRequestMethod("POST");
