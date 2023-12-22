@@ -13,11 +13,25 @@
 		}
 	</select>
 	
-	<select id="joinKakao" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<insert id="joinKakao" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			call joinKakao(
 			#{userid}, #{name}, #{tel}, #{email}, #{provider})
 		}
-	</select>
+	</insert>
+	
+	<insert id="insertMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call insertMember(
+			#{userid}, #{pwd}, #{name}, #{tel}, #{email}, #{zipnum}, #{address1}, #{address2}, #{address3})
+		}
+	</insert>
+	
+	<insert id="updateMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call updateMember(
+			#{userid}, #{pwd}, #{name}, #{tel}, #{email}, #{zipnum}, #{address1}, #{address2}, #{address3})
+		}
+	</insert>
 
 </mapper>

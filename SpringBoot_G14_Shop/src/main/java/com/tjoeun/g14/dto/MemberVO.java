@@ -20,7 +20,9 @@ public class MemberVO {
 	@NotEmpty(message="이메일을 입력하세요.")
 	private String email;
 	
+	@NotEmpty(message="전화번호를 입력하세요.")
 	private String tel;
+	
 	private String zipnum;
 	private String address1;
 	private String address2;

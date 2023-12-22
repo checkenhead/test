@@ -20,4 +20,12 @@ public class MemberService {
 	public void joinKakao(HashMap<String, Object> paramMap) {
 		mdao.joinKakao(paramMap);
 	}
+
+	public void insertMember(HashMap<String, Object> paramMap) {
+		mdao.insertMember(paramMap);
+	}
+
+	public void updateMember(HashMap<String, Object> paramMap) {
+		mdao.updateMember(paramMap);
+	}
 }
