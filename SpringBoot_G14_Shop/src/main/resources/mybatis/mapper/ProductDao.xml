@@ -34,4 +34,20 @@
 	최종 ref_cursor1과 2로 전달되는 자료형은 ArrayList<HashMap<String, Object>>
 	-->
 	
+	<select id="getKindList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getKindList(
+			#{kind},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap1})
+		}
+	</select>
+	
+	<select id="getProductDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getProductDetail(
+			#{pseq},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap1})
+		}
+	</select>
+	
 </mapper>

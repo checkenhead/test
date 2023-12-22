@@ -83,6 +83,7 @@
 		<div id="buttons">
 			<input type="submit" class="submit" value="회원가입">
 			<input type="reset" class="cancel" value="취소">
+			<input type="button" class="cancel" value="메인으로" onClick="location.href='/'">
 		</div>
 		</fieldset>
 	</form>

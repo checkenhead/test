@@ -17,4 +17,8 @@ public interface IProductDao {
 	
 	public void getBestNewList(HashMap<String, Object> paramMap);
 
+	public void getKindList(HashMap<String, Object> paramMap);
+
+	public void getProductDetail(HashMap<String, Object> paramMap);
+
 }

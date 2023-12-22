@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tjoeun.g14.service.ProductService;
@@ -40,6 +41,38 @@ public class ProductController {
 		mav.addObject("newProductList", paramMap.get("ref_cursor2"));
 		
 		mav.setViewName("index");
+		
+		return mav;
+	}
+	
+	@GetMapping("/category")
+	public ModelAndView category(@RequestParam("kind") String kind) {
+		ModelAndView mav = new ModelAndView();
+		
+		//해당 상품목록을 select
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("kind", kind);
+		paramMap.put("ref_cursor", null);
+		ps.getKindList(paramMap);
+		
+		mav.addObject("productKindList", paramMap.get("ref_cursor"));
+		mav.setViewName("product/productKind");
+		
+		return mav;
+	}
+	
+	@GetMapping("/productDetail")
+	public ModelAndView productDetail(@RequestParam("pseq") int pseq) {
+		ModelAndView mav = new ModelAndView();
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("pseq", pseq);
+		paramMap.put("ref_cursor", null);
+		ps.getProduct(paramMap);
+		
+		mav.addObject("productVO", ((ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor")).get(0));
+		mav.setViewName("product/productDetail");
 		
 		return mav;
 	}

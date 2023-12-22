@@ -27,4 +27,12 @@ public class ProductService {
 	public void getBestNewList(HashMap<String, Object> paramMap) {
 		pdao.getBestNewList(paramMap);
 	}
+
+	public void getKindList(HashMap<String, Object> paramMap) {
+		pdao.getKindList(paramMap);
+	}
+
+	public void getProduct(HashMap<String, Object> paramMap) {
+		pdao.getProductDetail(paramMap);
+	}
 }
