@@ -14,7 +14,7 @@
 				<label>가 격 :</label><p><fmt:formatNumber type="currency" value="${productVO.PRICE2}"/></p>
 	   			<label>수 량 :</label><input  type="text" name="qty" size="2" value="1">
 	   			<br>
-	   			<input  type="hidden" name="pseq" value="${productVO.PSEQ}">
+	   			<input type="hidden" name="pseq" value="${productVO.PSEQ}">
 	   			<br>
 			</fieldset> 
 			<div class="clear"></div>
