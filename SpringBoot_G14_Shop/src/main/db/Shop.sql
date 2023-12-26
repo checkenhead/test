@@ -414,6 +414,7 @@ select * from orders;
 
 select * from cart_view;
 select * from order_view;
+select * from order_detail;
 
 
 

@@ -270,6 +270,10 @@ form .cancel {
 	margin: 0 0 0 20px;
 }
 
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover{
+	cursor:pointer;
+}
+
 form .submit {
 	background-image: url(../images/submit_back.jpg);
 }

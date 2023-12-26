@@ -10,23 +10,23 @@ function go_cart(){
 
 function go_cart_delete(){
 	var count = 0;
+	var cartListFrm = document.cartListFrm;
 	
-	if(document.cartListFrm.cseq.length = undefined) {
-		if(document.cartListFrm.cseq.checked == true) {
-			count++;
-		}
+	if(cartListFrm.cseq.length == undefined && cartListFrm.cseq.checked == true) {
+		count++;
 	} else {
-		for(var i = 0; i < document.cartListFrm.cseq.length; i++){
-			if(document.cartListFrm.cseq[i].checked == true){
-				count ++;
+		for(var i = 0; i < cartListFrm.cseq.length; i++){
+			if(cartListFrm.cseq[i].checked == true){
+				count++;
 			}
 		}
 	}
+	
 	if(count == 0){
 		alert("삭제할 항목을 선택하세요.");
-	}else {
-		document.cartListFrm.action = "deleteCart";
-		document.cartListFrm.submit();
+	} else {
+		cartListFrm.action = "deleteCart";
+		cartListFrm.submit();
 	}
 }
 
