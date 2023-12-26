@@ -12,4 +12,37 @@
 			#{oseq, mode=OUT, jdbcType=INTEGER})
 		}
 	</insert>
+	
+	<select id="getOrderByOseq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getOrderByOseq(
+			#{oseq},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap})
+		}
+	</select>
+	
+	<insert id="insertOrderByPseq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call insertOrderByPseq(
+			#{userid}, #{pseq}, #{qty},
+			#{oseq, mode=OUT, jdbcType=INTEGER})
+		}
+	</insert>
+	
+	<select id="getOseqListIng" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getOseqListIng(
+			#{userid},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap})
+		}
+	</select>
+	
+	<select id="getOseqListAll" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getOseqListAll(
+			#{userid},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=orderMap})
+		}
+	</select>
+	
 </mapper>

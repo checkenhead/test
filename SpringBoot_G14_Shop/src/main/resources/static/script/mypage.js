@@ -4,6 +4,7 @@ function go_cart(){
 		document.productDetailFrm.qty.focus();
 	} else {
 		document.productDetailFrm.action = "insertCart";
+		document.productDetailFrm.method = "post";
 		document.productDetailFrm.submit();
 	}
 }
@@ -34,5 +35,29 @@ function go_order_insert(){
 	document.cartListFrm.action = "insertOrder";
 	document.cartListFrm.submit();
 }
+
+function go_order(){
+	document.productDetailFrm.action = "insertOderByPseq";
+	document.productDetailFrm.method = "post";
+	document.productDetailFrm.submit();
+}
+
+function passCheck(qseq){
+	var url = "passCheck?qseq=" + qseq;
+	var opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=500, height=250";
+	
+	window.open(url, "Pass Check", opt);
+}
+
+function toggle_secret(){
+	if(document.qnaWriteFrm.secret.checked == true){
+		document.qnaWriteFrm.pass.disabled = false;
+		document.qnaWriteFrm.pass.value = "";
+	} else{
+		document.qnaWriteFrm.pass.disabled = true;
+	}
+}
+
+
 
 

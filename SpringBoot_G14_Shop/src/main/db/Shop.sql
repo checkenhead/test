@@ -419,13 +419,15 @@ select * from order_detail;
 
 
 
+update order_detail set result = '4' where oseq = 24 or oseq = 25 or oseq = 32;
+commit
+
+select * from qna;
+
+alter table qna add secret char(1) default 'N';
+alter table qna add pass varchar2(30);
 
 
-
-
-
-
-
-
-
+update qna set secret = 'Y', pass = '1234' where qseq = 4;
+commit
 

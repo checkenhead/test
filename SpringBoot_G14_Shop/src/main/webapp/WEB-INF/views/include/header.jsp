@@ -36,7 +36,7 @@
 			</c:choose>
 			<li><a href="cartList">Cart</a></li>
 			<li><a href="myPage">MyPage</a></li>
-			<li><a href="customer">QnA</a></li>
+			<li><a href="customer">고객센터</a></li>
 		</ul>
 	</nav>
 	<nav id="category_menu">

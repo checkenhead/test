@@ -4,7 +4,7 @@
 <article>
 	<h1> Item </h1>
 	<div id="itemdetail">
-		<form  method="post" name="productDetailFrm">
+		<form  method="get" name="productDetailFrm">
 			<fieldset>
 				<legend> Item detail Info</legend>
 				<span style="float: left;">

@@ -332,4 +332,21 @@ public class MemberController {
 		
 		return url;
 	}
+	
+	@GetMapping("/deleteMember")
+	public String deleteMember(HttpServletRequest request, Model model) {
+		HashMap<String, Object> loginUser = (HashMap<String, Object>)request.getSession().getAttribute("loginUser");
+		
+		if(loginUser != null) {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			
+			paramMap.put("userid", loginUser.get("USERID"));
+			
+			ms.deleteMember(paramMap);
+			
+			model.addAttribute("message", "회원탈퇴가 등록되었습니다.");
+		}
+		
+		return "member/login";
+	}
 }

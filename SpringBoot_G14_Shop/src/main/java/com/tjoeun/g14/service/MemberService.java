@@ -28,4 +28,8 @@ public class MemberService {
 	public void updateMember(HashMap<String, Object> paramMap) {
 		mdao.updateMember(paramMap);
 	}
+
+	public void deleteMember(HashMap<String, Object> paramMap) {
+		mdao.deleteMember(paramMap);
+	}
 }
