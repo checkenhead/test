@@ -20,10 +20,10 @@
 		}
 	</select>
 	
-	<insert id="getQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<insert id="insertQna" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			call getQna(
-			#{userid}, #{subject}, #{content}, #{secret}, #{pass})
+			call insertQna(
+			#{userid}, #{subject}, #{content}, #{secret}, #{pass, jdbcType=VARCHAR})
 		}
 	</insert>
 	

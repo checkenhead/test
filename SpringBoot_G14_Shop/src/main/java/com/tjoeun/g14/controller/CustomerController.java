@@ -105,30 +105,31 @@ public class CustomerController {
 	@PostMapping("/qnaWrite")
 	public String qnaWrite(
 			@RequestParam(value="secret", required=false, defaultValue="N") String secret,
-			@RequestParam(value="pass", required=false, defaultValue="") String pass,
-			@RequestParam("subject") @Valid String subject,
-			@RequestParam("content") @Valid String content,
-			BindingResult result,
+			@RequestParam(value="pass", required=false) String pass,
+			@RequestParam("subject") String subject,
+			@RequestParam("content") String content,
 			HttpServletRequest request,
 			Model model) {
 		HashMap<String, Object> loginUser = (HashMap<String, Object>)request.getSession().getAttribute("loginUser");
-		String url = "member/login";
+		String url = "customer/qnaWrite";
 		
-		if(loginUser != null) {
-			if(result.getFieldError("subject") != null) {
-				model.addAttribute("message", result.getFieldError("subject").getDefaultMessage());
-			} else if(result.getFieldError("content") != null) {
-				model.addAttribute("message", result.getFieldError("content").getDefaultMessage());
+		if(loginUser == null) {
+			url = "member/login";
+		} else {
+			if(subject == null || subject.equals("")) {
+				model.addAttribute("message", "제목을 입력하세요.");
+			} else if(content == null || content.equals("")) {
+				model.addAttribute("message", "내용을 입력하세요.");
 			} else if(secret.equals("Y") && pass.equals("")) {
 				model.addAttribute("message", "비밀번호를 입력하세요.");
-			}else {
+			} else {
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
 				
 				paramMap.put("userid", loginUser.get("USERID"));
 				paramMap.put("subject", subject);
 				paramMap.put("content", content);
 				paramMap.put("secret", secret);
-				paramMap.put("pass", secret.equals("N")?pass:null);
+				paramMap.put("pass", secret.equals("Y")?pass:null);
 				
 				cs.insertQna(paramMap);
 				

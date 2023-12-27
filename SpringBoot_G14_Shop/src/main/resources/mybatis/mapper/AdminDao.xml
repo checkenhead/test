@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tjoeun.g14.dao.IAdminDao">
+
+	<resultMap id="adminMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="getAdmin" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getAdmin(
+			#{adminid},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})
+		}
+	</select>
+	
+	<select id="adminGetAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call adminGetAllCount(
+			#{tablename}, #{key},
+			#{cnt, mode=OUT, jdbcType=INTEGER})
+		}
+	</select>
+	
+	<select id="getProductList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getProductList(
+			#{startNum}, #{endNum}, #{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})
+		}
+	</select>
+	
+	<insert id="insertProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call insertProduct(
+			#{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{content}, #{image})
+		}
+	</insert>
+	
+	<update id="updateProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call updateProduct(
+			#{pseq}, #{name}, #{kind}, #{price1}, #{price2}, #{price3}, #{content}, #{useyn}, #{bestyn}, #{image})
+		}
+	</update>
+	
+	<select id="getOrderList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getOrderList(
+			#{startNum}, #{endNum}, #{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})
+		}
+	</select>
+	
+</mapper>

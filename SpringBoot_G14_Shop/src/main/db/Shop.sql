@@ -373,16 +373,16 @@ insert into cart(cseq,userid, pseq, qty) values(cart_seq.nextval, 'two', 3, 1);
 
 
 insert into orders( oseq, userid) values(orders_seq.nextVal, 'one');
-insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, 1, 2, 1);
-insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, 1, 3, 2);
+insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, orders_seq.currval, 174, 1);
+insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, orders_seq.currval, 175, 2);
 
 insert into orders(oseq, userid) values(orders_seq.nextval, 'two');
-insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, 2, 4, 3);
-insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, 2, 5, 2);
+insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, orders_seq.currval, 176, 3);
+insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, orders_seq.currval, 177, 2);
 
 insert into orders(oseq, userid) values(orders_seq.nextval, 'one');
-insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, 3, 3, 1);
-insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, 3, 2, 1);
+insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, orders_seq.currval, 178, 1);
+insert into order_detail(odseq, oseq, pseq, qty) values(order_detail_seq.nextval, orders_seq.currval, 179, 1);
 
 
 
@@ -430,4 +430,25 @@ alter table qna add pass varchar2(30);
 
 update qna set secret = 'Y', pass = '1234' where qseq = 4;
 commit
+
+
+select * from admins;
+
+
+
+select * from product;
+
+
+select * from order_view;
+select * from order_detail;
+
+
+
+
+
+
+
+
+
+
 
