@@ -51,4 +51,54 @@
 		}
 	</select>
 	
+	<update id="updateResult" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call updateResult(#{param1})
+		}
+	</update>
+	
+	<select id="getMemberList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getMemberList(
+			#{startNum}, #{endNum}, #{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})
+		}
+	</select>
+	
+	<update id="memberToggleUseyn" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call memberToggleUseyn(
+			#{userid}, #{useyn})
+		}
+	</update>
+	
+	<select id="getAdminQnaList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getAdminQnaList(
+			#{startNum}, #{endNum}, #{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})
+		}
+	</select>
+	
+	<update id="updateReply" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call updateReply(
+			#{qseq}, #{reply})
+		}
+	</update>
+	
+	<select id="getBannerList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call getBannerList(
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap})
+		}
+	</select>
+	
+	<insert id="insertBanner" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call insertBanner(
+			#{oseq}, #{subject}, #{image}, #{useyn})
+		}
+	</insert>
+	
 </mapper>

@@ -13,12 +13,14 @@
 	
 	<resultMap id="productMap1" type="java.util.HashMap"></resultMap>
 	<resultMap id="productMap2" type="java.util.HashMap"></resultMap>
+	<resultMap id="productMap3" type="java.util.HashMap"></resultMap>
 	
 	<select id="getBestNewList" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			call getBestNewList(
 			#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap1},
-			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap2})
+			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap2},
+			#{ref_cursor3, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=productMap3})
 		}
 	</select>
 	<!--

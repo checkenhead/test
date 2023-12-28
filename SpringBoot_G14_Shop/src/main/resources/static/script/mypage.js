@@ -42,6 +42,12 @@ function go_order(){
 	document.productDetailFrm.submit();
 }
 
+function go_order_end(oseq, odseq){
+	location.href = "orderEnd?odseq=" + odseq + "&oseq=" + oseq;
+}
+
+
+
 function passCheck(qseq){
 	var url = "passCheck?qseq=" + qseq;
 	var opt = "toolbar=no, menubar=no, resizable=no, scrollbars=no, width=500, height=250";

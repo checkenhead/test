@@ -73,4 +73,8 @@ public class OrderService {
 		
 		return finalList;
 	}
+
+	public void orderEnd(int odseq) {
+		odao.orderEnd(odseq);
+	}
 }

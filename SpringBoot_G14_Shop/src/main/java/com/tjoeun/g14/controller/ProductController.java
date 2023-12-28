@@ -32,6 +32,7 @@ public class ProductController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("ref_cursor1", null);
 		paramMap.put("ref_cursor2", null);
+		paramMap.put("ref_cursor3", null);
 		
 		ps.getBestNewList(paramMap); //프로시저 out변수로 사용할 객체를 담고있는 paramMap 전달
 		
@@ -39,6 +40,7 @@ public class ProductController {
 		//ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor2");
 		mav.addObject("bestProductList", paramMap.get("ref_cursor1"));
 		mav.addObject("newProductList", paramMap.get("ref_cursor2"));
+		mav.addObject("bannerList", paramMap.get("ref_cursor3"));
 		
 		mav.setViewName("index");
 		

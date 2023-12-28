@@ -17,4 +17,6 @@ public interface IOrderDao {
 
 	void getOseqListAll(HashMap<String, Object> paramMap);
 
+	void orderEnd(int odseq);
+
 }

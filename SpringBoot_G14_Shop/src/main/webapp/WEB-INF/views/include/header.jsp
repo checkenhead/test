@@ -11,6 +11,13 @@
 <link rel="stylesheet" type="text/css" href="/css/shopping.css">
 <script type="text/javascript" src="/script/member.js"></script>
 <script type="text/javascript" src="/script/mypage.js"></script>
+<script type="text/javascript">
+	var num = 0;
+	setInterval(function(){
+		document.getElementById("imgs").style.left = num * -968 + "px";
+		num = ++num==5?0:num;
+	}, 2000)
+</script>
 
 </head>
 <body>

@@ -19,4 +19,18 @@ public interface IAdminDao {
 
 	void getOrderList(HashMap<String, Object> paramMap);
 
+	void updateResult(int odseq);
+
+	void getMemberList(HashMap<String, Object> paramMap);
+
+	void memberToggleUseyn(HashMap<String, Object> paramMap);
+
+	void updateReply(HashMap<String, Object> paramMap);
+
+	void getAdminQnaList(HashMap<String, Object> paramMap);
+
+	void getBannerList(HashMap<String, Object> paramMap);
+
+	void insertBanner(HashMap<String, Object> paramMap);
+
 }

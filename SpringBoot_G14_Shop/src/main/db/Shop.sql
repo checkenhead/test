@@ -444,9 +444,19 @@ select * from order_detail;
 
 
 
+CREATE SEQUENCE banner_seq INCREMENT BY 1 START WITH 1;
 
+create table banner(
+	bseq number(5) primary key,
+	oseq number(2),
+	subject varchar2(30),
+	image varchar2(30),
+	indate date default sysdate
+);
 
+alter table banner add useyn char(1) default 'N';
 
+select * from banner;
 
 
 

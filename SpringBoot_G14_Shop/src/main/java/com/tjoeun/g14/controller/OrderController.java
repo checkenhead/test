@@ -148,4 +148,12 @@ public class OrderController {
 		
 		return url;
 	}
+	
+	@GetMapping("/orderEnd")
+	public String orderEnd(@RequestParam("odseq") int odseq, @RequestParam("oseq") int oseq) {
+		
+		os.orderEnd(odseq);
+		
+		return "redirect:/orderDetail?oseq=" + oseq;
+	}
 }

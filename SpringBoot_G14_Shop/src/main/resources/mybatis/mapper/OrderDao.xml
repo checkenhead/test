@@ -45,4 +45,10 @@
 		}
 	</select>
 	
+	<update id="orderEnd" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			call orderEnd(#{param1})
+		}
+	</update>
+	
 </mapper>

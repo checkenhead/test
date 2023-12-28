@@ -4,6 +4,7 @@ function go_detail(pseq){
 
 function go_search(requestName){
 	document.frm.action = requestName + "?page=1";
+	document.frm.method = "get";
 	document.frm.submit();
 }
 
@@ -73,3 +74,60 @@ function go_mod_save(){
 		}
 	}
 }
+
+function go_order_update(){
+	var count = 0;
+	var adminOrderListFrm = document.frm;
+	
+	if(adminOrderListFrm.result.length == undefined && adminOrderListFrm.result.checked == true) {
+		count++;
+	} else {
+		for(var i = 0; i < adminOrderListFrm.result.length; i++){
+			if(adminOrderListFrm.result[i].checked == true){
+				count++;
+			}
+		}
+	}
+	
+	if(count == 0){
+		alert("업데이트할 항목을 선택하세요.");
+	} else {
+		adminOrderListFrm.action = "orderUpdateResult";
+		adminOrderListFrm.submit();
+	}
+}
+
+function toggle_useyn(userid, useyn){
+	location.href = "memberToggleUseyn?userid=" + userid + "&useyn=" + useyn;
+}
+
+function go_view(qseq){
+	location.href = "adminQnaView?qseq=" + qseq;
+}
+
+function go_reply(){
+	if(document.frm.reply.value == ""){
+		alert("내용을 입력하세요.");
+		return;
+	} else {
+		document.frm.action = "adminUpdateReply";
+		document.frm.submit();
+	}
+}
+
+function go_banner_save(){
+	if(document.frm.oseq.value == ""){
+		alert("디스플레이 순서를 선택하세요.");
+		return;
+	} else if(document.frm.subject.value == ""){
+		alert("제목을 입력하세요.");
+		return;
+	} else if(document.frm.image.value == ""){
+		alert("사진이 없습니다.");
+		return;
+	} else{
+		document.frm.action = "insertBanner";
+		document.frm.submit();
+	}
+}
+
