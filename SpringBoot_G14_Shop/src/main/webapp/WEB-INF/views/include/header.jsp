@@ -16,7 +16,7 @@
 	setInterval(function(){
 		document.getElementById("imgs").style.left = num * -968 + "px";
 		num = ++num==5?0:num;
-	}, 2000)
+	}, 2000);
 </script>
 
 </head>
