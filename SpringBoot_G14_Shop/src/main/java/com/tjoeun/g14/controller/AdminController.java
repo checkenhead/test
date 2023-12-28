@@ -74,7 +74,7 @@ public class AdminController {
 				} else if (avo.get("PWD").equals(pwd)) {
 					request.getSession().setAttribute("loginAdmin", avo);
 					url = "redirect:/productList";
-				}
+				}//주석
 			}
 		}
 
